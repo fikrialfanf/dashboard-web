@@ -13,17 +13,17 @@
         {{csrf_field()}}
         <div class="mb-3">
             <label class="form-label" for="nama">Nama</label>
-            <input class="form-control" name="nama" type="text" placeholder="Nama" data-sb-validations="required,nama" />
+            <input class="form-control" name="nama" type="text" placeholder="Nama" required="required" />
             
         </div>
         <div class="mb-3">
             <label class="form-label" for="kota">kota</label>
-            <input class="form-control" name="kota" type="text" placeholder="kota" data-sb-validations="required,kota" />
+            <input class="form-control" name="kota" type="text" placeholder="kota" required="required" />
          
         </div>
         <div class="mb-3">
             <label class="form-label" for="jurusan">jurusan</label>
-            <input class="form-control" name="jurusan" type="text" placeholder="jurusan" data-sb-validations="required,jurusan" />
+            <input class="form-control" name="jurusan" type="text" placeholder="jurusan" required="required" />
            
         </div>
     

@@ -5,7 +5,7 @@
 
 	<h3>Edit mahasiswa</h3>
  
-	<a href="/mahasiswa" class="btn btn-danger"> Kembali</a>
+	<a href="/dashboard/mahasiswa" class="btn btn-danger"> Kembali</a>
 	
 	<br/>
 	<br/>
@@ -16,17 +16,17 @@
         <input type="hidden" name="id" value="{{ $mhs->id }}"> <br/>
         <div class="mb-3">
             <label class="form-label" for="nama">Nama</label>
-            <input class="form-control" name="nama" type="text" placeholder="Nama" data-sb-validations="required,nama" value="{{$mhs->nama}}" />
+            <input class="form-control" name="nama" type="text" placeholder="Nama" required="required" value="{{$mhs->nama}}" />
             
         </div>
         <div class="mb-3">
             <label class="form-label" for="kota">kota</label>
-            <input class="form-control" name="kota" type="text" placeholder="kota" data-sb-validations="required,kota" value="{{$mhs->kota}}" />
+            <input class="form-control" name="kota" type="text" placeholder="kota" required="required" value="{{$mhs->kota}}" />
          
         </div>
         <div class="mb-3">
             <label class="form-label" for="jurusan">jurusan</label>
-            <input class="form-control" name="jurusan" type="text" placeholder="jurusan" data-sb-validations="required,jurusan" value="{{$mhs->jurusan}}" />
+            <input class="form-control" name="jurusan" type="text" placeholder="jurusan" required="required" value="{{$mhs->jurusan}}" />
            
         </div>
     
