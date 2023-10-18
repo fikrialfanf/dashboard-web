@@ -15,7 +15,7 @@ class MahasiswaController extends Controller
     {
         $mahasiswa = DB::table('mahasiswa')->get();
  
-        return view('dashboard.data_mahasiswa', ['mahasiswa' => $mahasiswa]);
+        return view('dashboard.mahasiswa.data_mahasiswa', ['mahasiswa' => $mahasiswa]);
         ;
     }
 
@@ -26,7 +26,7 @@ class MahasiswaController extends Controller
      */
     public function create()
     {
-        //
+        return view('dashboard.mahasiswa.tambah_data');
     }
 
     /**
@@ -37,7 +37,14 @@ class MahasiswaController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        // insert data ke table pegawai
+	    DB::table('mahasiswa')->insert([
+		    'nama' => $request->nama,
+		    'kota' => $request->kota,
+		    'jurusan' => $request->jurusan
+	    ]);
+	    // alihkan halaman ke halaman pegawai
+	    return redirect('/dashboard/mahasiswa');
     }
 
     /**

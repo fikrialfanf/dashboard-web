@@ -25,4 +25,6 @@ Route::controller(LoginRegisterController::class)->group(function() {
     Route::get('/dashboard', 'dashboard')->name('dashboard');
     Route::post('/logout', 'logout')->name('logout');
 });
-Route::get('/dashboard/mahasiswa',[MahasiswaController::class, 'index']);
+Route::get('/dashboard/mahasiswa',[MahasiswaController::class, 'index'])->middleware('auth');
+Route::get('/dashboard/mahasiswa/tambah',[MahasiswaController::class, 'create'])->middleware('auth');
+Route::post('/dashboard/mahasiswa/store', [MahasiswaController::class,'store'])->middleware('auth');
