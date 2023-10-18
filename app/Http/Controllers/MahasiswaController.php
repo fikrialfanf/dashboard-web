@@ -14,9 +14,7 @@ class MahasiswaController extends Controller
     public function index()
     {
         $mahasiswa = DB::table('mahasiswa')->get();
- 
         return view('dashboard.mahasiswa.data_mahasiswa', ['mahasiswa' => $mahasiswa]);
-        ;
     }
 
     /**
@@ -55,7 +53,8 @@ class MahasiswaController extends Controller
      */
     public function show($id)
     {
-        //
+        $mahasiswa = DB::table('mahasiswa')->where('id',$id)->get();
+        return view('dashboard.mahasiswa.edit', ['mahasiswa' => $mahasiswa]);
     }
 
     /**
@@ -64,10 +63,7 @@ class MahasiswaController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function edit($id)
-    {
-        //
-    }
+   
 
     /**
      * Update the specified resource in storage.
@@ -76,9 +72,16 @@ class MahasiswaController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(Request $request)
     {
-        //
+        
+	    DB::table('mahasiswa')->where('id',$request->id)->update([
+		    'nama' => $request->nama,
+		    'kota' => $request->kota,
+		    'jurusan' => $request->jurusan,
+	    ]);
+	
+	    return redirect('/dashboard/mahasiswa');
     }
 
     /**
@@ -89,6 +92,7 @@ class MahasiswaController extends Controller
      */
     public function destroy($id)
     {
-        //
+	    DB::table('mahasiswa')->where('id',$id)->delete();
+	    return redirect('/dashboard/mahasiswa');
     }
 }

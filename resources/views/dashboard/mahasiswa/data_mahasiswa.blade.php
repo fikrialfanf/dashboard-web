@@ -24,9 +24,9 @@
 			<td>{{ $mhs->jurusan }}</td>
 			
 			<td>
-				<a href="/mahasiswa/edit/{{ $mhs->id }}" class="btn btn-secondary" role="button">Edit</a>
+				<a href="/dashboard/mahasiswa/edit/{{ $mhs->id }}" class="btn btn-secondary" >Edit</a>
 				|
-				<a href="/mahasiswa/hapus/{{ $mhs->id }}" class="btn btn-danger" role="button">Hapus</a>
+				<a href="/dashboard/mahasiswa/hapus/{{ $mhs->id }}" class="btn btn-danger" >Hapus</a>
 			</td>
 		</tr>
 		@endforeach

@@ -28,3 +28,6 @@ Route::controller(LoginRegisterController::class)->group(function() {
 Route::get('/dashboard/mahasiswa',[MahasiswaController::class, 'index'])->middleware('auth');
 Route::get('/dashboard/mahasiswa/tambah',[MahasiswaController::class, 'create'])->middleware('auth');
 Route::post('/dashboard/mahasiswa/store', [MahasiswaController::class,'store'])->middleware('auth');
+Route::get('/dashboard/mahasiswa/edit/{id}', [MahasiswaController::class,'show'])->middleware('auth');
+Route::post('/dashboard/mahasiswa/update', [MahasiswaController::class,'update'])->middleware('auth');
+Route::get('/dashboard/mahasiswa/hapus/{id}',[MahasiswaController::class, 'destroy'])->middleware('auth');
