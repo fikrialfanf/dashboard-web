@@ -9,7 +9,9 @@
 	
 	<br/>
 	<br/>
- 
+	@if(isset($message))
+		<p>{{ $message }}</p>
+	@else
     <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
 		<tr>
 			<th>Nama</th>
@@ -31,7 +33,7 @@
 		</tr>
 		@endforeach
 	</table>
- 
+ @endif
  
 </body>
 </html>

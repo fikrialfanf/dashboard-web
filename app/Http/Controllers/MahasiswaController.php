@@ -1,7 +1,7 @@
 <?php
 
 namespace App\Http\Controllers;
-
+use App\Models\Mahasiswa;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 class MahasiswaController extends Controller
@@ -9,8 +9,17 @@ class MahasiswaController extends Controller
    
     public function index()
     {
-        $mahasiswa = DB::table('mahasiswa')->get();
-        return view('dashboard.mahasiswa.data_mahasiswa', ['mahasiswa' => $mahasiswa]);
+        
+        // $mahasiswa = DB::table('mahasiswa')->get();
+        // return view('dashboard.mahasiswa.data_mahasiswa', ['mahasiswa' => $mahasiswa]);
+        $mahasiswa = Mahasiswa::all();
+
+        if ($mahasiswa->isEmpty()) {
+            $message = "Tidak ada data.";
+            return view('dashboard.mahasiswa.data_mahasiswa', compact('message'));
+        } else {
+            return view('dashboard.mahasiswa.data_mahasiswa', ['mahasiswa' => $mahasiswa]);
+        }
     }
 
     public function create()
@@ -25,7 +34,7 @@ class MahasiswaController extends Controller
 		    'kota' => $request->kota,
 		    'jurusan' => $request->jurusan
 	    ]);
-	   
+	    // alihkan halaman ke halaman pegawai
 	    return redirect('/dashboard/mahasiswa');
     }
 
@@ -36,7 +45,21 @@ class MahasiswaController extends Controller
         return view('dashboard.mahasiswa.edit', ['mahasiswa' => $mahasiswa]);
     }
 
+    /**
+     * Show the form for editing the specified resource.
+     *
+     * @param  int  $id
+     * @return \Illuminate\Http\Response
+     */
+   
 
+    /**
+     * Update the specified resource in storage.
+     *
+     * @param  \Illuminate\Http\Request  $request
+     * @param  int  $id
+     * @return \Illuminate\Http\Response
+     */
     public function update(Request $request)
     {
         
@@ -49,7 +72,12 @@ class MahasiswaController extends Controller
 	    return redirect('/dashboard/mahasiswa');
     }
 
-
+    /**
+     * Remove the specified resource from storage.
+     *
+     * @param  int  $id
+     * @return \Illuminate\Http\Response
+     */
     public function destroy($id)
     {
 	    DB::table('mahasiswa')->where('id',$id)->delete();
