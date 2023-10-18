@@ -5,7 +5,7 @@
 
 	<h3>Data mahasiswa</h3>
  
-	<a href="/dashboard/mahasiswa" class="btn btn-danger" role="button"><-Kembali</a>
+	<a href="/dashboard/mahasiswa" class="btn btn-danger" role="button">Kembali</a>
 	
 	<br/>
 	<br/>
